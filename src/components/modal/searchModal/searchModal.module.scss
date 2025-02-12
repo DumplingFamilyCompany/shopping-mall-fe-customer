@@ -1,0 +1,46 @@
+.searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.listHeader {
+  display: grid;
+  grid-template-columns: 150px auto;
+  margin-top: 20px;
+  font-weight: 700;
+  padding: 15.5px 0;
+}
+
+.scrollContainer {
+  height: 493px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.multiScrollContainer {
+  height: 453px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 150px 462px auto;
+  border-top: 1px solid var(--border-1);
+  padding: 20.5px 0;
+  align-items: center;
+
+  input {
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+.tagScrollContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  overflow-x: scroll;
+}

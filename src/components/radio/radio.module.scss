@@ -1,0 +1,25 @@
+.input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
+  outline: none;
+  cursor: pointer;
+
+  &:checked {
+    background-color: var(--primary-1);
+    border: 3.5px solid var(--white-1);
+    box-shadow: 0 0 0 2px var(--primary-1);
+  }
+}
+
+.label {
+  cursor: pointer;
+}
+
+.fieldset {
+  border: none;
+}

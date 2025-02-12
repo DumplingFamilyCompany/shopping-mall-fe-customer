@@ -1,0 +1,61 @@
+.flexContainer {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  border: 1px solid var(--border-1);
+  border-radius: 4px;
+  padding: 10.5px 12px;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  /* right: 0; */
+  width: 150px;
+  left: 0;
+  width: 370px;
+  border-radius: 14px;
+  background-color: var(--white-1);
+  box-shadow: 0px 20px 60px 0px #17314b26;
+  z-index: 15;
+}
+
+.optionScrollContainer {
+  max-height: 236px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.option {
+  padding: 12px 0 12px 20px;
+  cursor: pointer;
+
+  &:last-of-type {
+    border-radius: 0 0 14px 14px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.active {
+  color: var(--primary-1);
+  font-weight: 700;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+}

@@ -1,0 +1,37 @@
+.input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-1);
+  border-radius: 4px;
+  background-color: var(--white-1);
+  outline: none;
+  cursor: pointer;
+
+  &::before {
+    content: url("data:image/svg+xml,%3Csvg width='13' height='10' viewBox='0 0 13 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.90688 9.62373C4.71006 9.82894 4.38196 9.82894 4.18515 9.62373L0.331915 5.60596C0.146402 5.41253 0.146402 5.10722 0.331915 4.91379L0.775638 4.45112C0.972451 4.2459 1.30055 4.2459 1.49737 4.45112L4.18515 7.25366C4.38196 7.45888 4.71006 7.45888 4.90688 7.25366L11.5026 0.376273C11.6994 0.171056 12.0275 0.171057 12.2244 0.376274L12.6681 0.838944C12.8536 1.03238 12.8536 1.33768 12.6681 1.53112L4.90688 9.62373Z' fill='white'/%3E%3C/svg%3E%0A");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+  }
+
+  &:checked {
+    background-color: var(--primary-1);
+    border-color: white;
+    color: white;
+  }
+}
+
+.label {
+  cursor: pointer;
+}
+
+.fieldset {
+  border: none;
+}

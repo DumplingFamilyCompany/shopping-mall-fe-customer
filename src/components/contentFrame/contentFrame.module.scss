@@ -1,0 +1,24 @@
+.container {
+  background-color: var(--content-container-background-color);
+  border: var(--content-container-border);
+  border-radius: var(--content-container-border-radius);
+  box-shadow: var(--content-container-box-shadow);
+}
+
+.flexContainer {
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.flexContainer:not(:last-of-type) {
+  border-bottom: 1px solid var(--border-1);
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: var(--neutral-1);
+}
