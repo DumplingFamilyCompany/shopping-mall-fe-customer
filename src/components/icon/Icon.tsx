@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { IconNames, ICONS } from './IconExports';
+import { IconNames, ICONS } from './iconExports';
 
 export type IconProps = {
   name: IconNames;

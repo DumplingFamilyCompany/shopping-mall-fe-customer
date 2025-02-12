@@ -1,4 +1,8 @@
 {
+  // iconGenerator 스크립트 실행을 위해 추가 node --loader ts-node/esm
+  "ts-node": {
+    "esm": true
+  },
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -7,7 +11,7 @@
     "strict": false,
     "noEmit": true,
     "incremental": true,
-    "module": "esnext",
+    "module": "ESNext",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
