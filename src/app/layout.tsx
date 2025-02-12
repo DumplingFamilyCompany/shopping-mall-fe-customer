@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import ModalPortal from '@/components/modal/ModalPortal';
 import './globals.css';
 import ReactQueryProvider from './providers';
 
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <ModalPortal />
+          {children}
+        </ReactQueryProvider>
       </body>
     </html>
   );
