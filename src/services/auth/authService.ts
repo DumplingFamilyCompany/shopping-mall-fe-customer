@@ -1,21 +1,15 @@
 import { createSearchParams } from '@/utils/createSearchParams';
-import { typedFetch } from '../typedFetch';
+import { typedFetch } from '../apiClient';
 
-export class AuthService {
-  static repository: AuthService = new AuthService();
-
-  static getInstance = () => {
-    return this.repository;
-  };
-
-  getTestUserList = async () => {
+export const authService = {
+  getTestUserList: async () => {
     const response =
       await typedFetch<{ id: string; name: string }[]>('/api/users');
 
     return response;
-  };
+  },
 
-  getTestPhotoList = async (params: { start: number; limit: number }) => {
+  getTestPhotoList: async (params: { start: number; limit: number }) => {
     const response = await typedFetch<
       {
         albumId: number;
@@ -27,9 +21,9 @@ export class AuthService {
     >(`/api/photos?${createSearchParams(params)}`);
 
     return response;
-  };
+  },
 
-  updateSingleSelectResponse = async (params: {
+  updateSingleSelectResponse: async (params: {
     data: { id: string; label: string };
   }) => {
     const response = await typedFetch<{ id: string; label: string }[]>(
@@ -39,5 +33,5 @@ export class AuthService {
     );
 
     return response;
-  };
-}
+  },
+};

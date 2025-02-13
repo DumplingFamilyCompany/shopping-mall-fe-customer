@@ -1,12 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { TEST_QUERY_KEYS } from '@/services/queryKeys';
-import { AuthService } from '../authService';
+import { authService } from '../authService';
 
 type TestResponse = { id: string; label: string };
 
-export const useUpdateMultiSelectResponseMutation = () => {
+export const useUpdateTestResponseMutation = () => {
   const queryClient = useQueryClient();
-  const authService = AuthService.getInstance();
 
   const mutation = useMutation<TestResponse[], Error, { data: TestResponse }>({
     mutationFn: (params) =>
