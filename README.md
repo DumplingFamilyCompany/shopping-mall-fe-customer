@@ -2,6 +2,7 @@
 
 ## 프로젝트 구조
 
+```
 nextjs-template
 ├─ public
 │ ├─ fonts
@@ -34,3 +35,4 @@ nextjs-template
 ├─ package.json
 ├─ tsconfig.json
 └─ yarn.lock
+```
