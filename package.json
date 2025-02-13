@@ -6,7 +6,8 @@
     "start": "next start",
     "lint": "next lint",
     "generate:icons": "node --loader ts-node/esm src/scripts/iconGenerator.ts",
-    "generate:scripts": "node --loader ts-node/esm src/scripts/serviceGenerator.ts"
+    "generate:scripts": "node --loader ts-node/esm src/scripts/serviceGenerator.ts",
+    "generate:pages": "node --loader ts-node/esm src/scripts/pageGenerator.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.66.0",

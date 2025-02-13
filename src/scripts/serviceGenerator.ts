@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// 스크립트 실행시 `FOLDER_NAME=sample yarn generate:scripts`로 환경 변수 전달
 const folderName = process.env.FOLDER_NAME;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
