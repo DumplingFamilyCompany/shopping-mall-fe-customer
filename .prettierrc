@@ -9,7 +9,7 @@
     "<THIRD_PARTY_MODULES>",
     "^@tanstack",
     "^@((?!components).)*$",
-    "^@/components*",
+    "^@/shared/ui*",
     "^[./]"
   ],
   "importOrderSortSpecifiers": true,

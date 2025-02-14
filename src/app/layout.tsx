@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ModalPortal from '@/components/modal/ModalPortal';
+import ModalPortal from '@/shared/ui/modal/ModalPortal';
 import './globals.css';
 import ReactQueryProvider from './providers';
 
