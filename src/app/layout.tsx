@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import JotaiProvider from '@/shared/ui/jotai/JotaiProvider';
 import ModalPortal from '@/shared/ui/modal/ModalPortal';
 import './globals.css';
 import ReactQueryProvider from './providers';
@@ -17,8 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ReactQueryProvider>
-          <ModalPortal />
-          {children}
+          <JotaiProvider>
+            <ModalPortal />
+            {children}
+          </JotaiProvider>
         </ReactQueryProvider>
       </body>
     </html>
