@@ -9,13 +9,12 @@ export const typedFetch = async <T, K = unknown>(
     body: JSON.stringify(body),
     headers: options?.headers || {
       'Content-Type': 'application/json',
+      // Authorization: `Bearer holymoly...`,
     },
     ...options,
   });
 
   if (response.status === 401) {
-    throw new Error('Unauthorized');
-
     if (typeof window !== 'undefined') {
       window.location.href = '/login';
     } else {

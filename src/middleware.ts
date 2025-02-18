@@ -30,8 +30,8 @@ export async function middleware(request: NextRequest) {
   const accessToken = request.cookies.get('accessToken')?.value;
   const refreshToken = request.cookies.get('refreshToken')?.value;
 
-  // 로그인 페이지와 API 경로에 대한 요청은 예외 처리
-  if (pathname === '/login' || pathname.startsWith('/api')) {
+  // 로그인 페이지와 로그인, 회원가입, 토큰 갱신 등의 API는 미들웨어에서 헤더를 추가하지 않고 그대로 통과
+  if (pathname === '/login' || pathname.startsWith('/api/auth')) {
     return NextResponse.next();
   }
 
@@ -43,13 +43,16 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next({
       request: modifiedRequest,
     });
+
+    // return NextResponse.rewrite(modifiedRequest.url, {
+    //   request: modifiedRequest,
+    // });
   }
 
   // Access Token은 없고, Refresh Token만 있는 경우 Refresh Token을 사용하여 새로운 토큰 발급
   if (refreshToken) {
     try {
       const newTokens = await getNewTokens(request, refreshToken);
-
       const modifiedRequest = getNewRequestWithHeader(
         request,
         newTokens.accessToken,
@@ -59,6 +62,10 @@ export async function middleware(request: NextRequest) {
       const response = NextResponse.next({
         request: modifiedRequest,
       });
+
+      // const response = NextResponse.rewrite(modifiedRequest.url, {
+      //   request: modifiedRequest,
+      // });
 
       // 서버간의 요청에서는 브라우저의 쿠키 저장소를 직접 다루지 않기 때문에 /api/auth로 통신하지 않고, 미들웨어 내에서 직접 쿠키 설정
       response.cookies.set({

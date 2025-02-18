@@ -8,7 +8,7 @@ import {
 import { authAPI } from './model';
 import { Tokens } from './types';
 
-// 1. 로그인
+// 📌 1. 로그인
 export const useLogin = () => {
   const queryClient = useQueryClient();
 
@@ -24,6 +24,7 @@ export const useLogin = () => {
   });
 };
 
+// 📌  2. 로그아웃
 export const useLogout = () => {
   const queryClient = useQueryClient();
 
@@ -39,19 +40,22 @@ export const useLogout = () => {
   });
 };
 
-// 📌 1. 유저 목록 조회 훅
+// 📌 3. 유저 목록 조회
 export const useGetUsers = (
-  options?: Omit<UseQueryOptions<[]>, 'queryKey' | 'queryFn'>,
+  options?: Omit<
+    UseQueryOptions<{ id: string; name: string }[]>,
+    'queryKey' | 'queryFn'
+  >,
 ) => {
-  return useQuery<[]>({
+  return useQuery<{ id: string; name: string }[]>({
     queryKey: ['users'],
-    queryFn: authAPI.getAuth,
+    queryFn: authAPI.getUsers,
     placeholderData: keepPreviousData,
     ...options,
   });
 };
 
-// 📌 2. 유저 생성 훅
+// 📌 4. 유저 생성
 export const useCreateUser = () => {
   const queryClient = useQueryClient();
 
