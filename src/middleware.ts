@@ -29,9 +29,11 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const accessToken = request.cookies.get('accessToken')?.value;
   const refreshToken = request.cookies.get('refreshToken')?.value;
+  const isApiRequest = request.nextUrl.pathname.startsWith('/api');
+  const isAuthApi = request.nextUrl.pathname.startsWith('/api/auth');
 
   // 로그인 페이지와 로그인, 회원가입, 토큰 갱신 등의 API는 미들웨어에서 헤더를 추가하지 않고 그대로 통과
-  if (pathname === '/login' || pathname.startsWith('/api/auth')) {
+  if (pathname === '/login' || isAuthApi) {
     return NextResponse.next();
   }
 
@@ -93,8 +95,19 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // API 요청이면 JSON 응답 반환
+  if (isApiRequest) {
+    return new NextResponse(JSON.stringify({ message: 'Unauthorized' }), {
+      status: 401,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  const redirectUrl = new URL('/login', request.url);
+  redirectUrl.searchParams.set('redirect', pathname);
+
   // Access Token과 Refresh Token이 모두 없는 경우 로그인 페이지로 리다이렉트
-  return NextResponse.redirect(new URL('/login', request.url));
+  return NextResponse.redirect(redirectUrl);
 }
 
 export const config = {

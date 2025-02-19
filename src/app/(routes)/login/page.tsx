@@ -1,9 +1,13 @@
 'use client';
 
-import { useLogin, useLogout } from '@/entities/auth/hooks';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useLogin } from '@/entities/auth/hooks';
 import { Button } from '@/shared/ui/button/Button';
 
 const LoginPage = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get('redirect') || '/';
   const useLoginMutation = useLogin();
 
   const handleLogin = () => {
@@ -12,6 +16,11 @@ const LoginPage = () => {
       {
         onSuccess: (res) => {
           console.log(res);
+          router.push(redirect);
+        },
+        onError: (err) => {
+          console.error(err);
+          alert('로그인 실패');
         },
       },
     );
