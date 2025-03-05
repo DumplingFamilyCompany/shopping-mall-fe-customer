@@ -15,7 +15,11 @@ const makeQueryClient = () => {
         retry: false,
         refetchOnWindowFocus: false,
         refetchOnMount: true,
+        // throwOnError: true,
       },
+      // mutations: {
+      //   onError: () => console.log('작업 필요'),
+      // },
     },
   });
 };

@@ -1,3 +1,5 @@
+import { ErrorModalProps } from './errorModal/ErrorModal';
+
 export type ModalPropsMap = {
   ConfirmModal: {
     question: string;
@@ -8,6 +10,7 @@ export type ModalPropsMap = {
     hello: number;
   };
   ChangePasswordModal: object;
+  ErrorModal: ErrorModalProps;
 };
 
 export type ModalConfig<T extends ModalTypes = ModalTypes> = {

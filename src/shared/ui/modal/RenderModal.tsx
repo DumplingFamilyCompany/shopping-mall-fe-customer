@@ -1,5 +1,6 @@
 import ChangePasswordModal from './changePasswordModal/ChangePasswordModal';
 import ConfirmModal from './confirmModal/ConfirmModal';
+import ErrorModal from './errorModal/ErrorModal';
 import { ModalConfig, ModalPropsMap, ModalTypes } from './modal.types';
 
 const MODAL_COMPONENTS: {
@@ -8,6 +9,7 @@ const MODAL_COMPONENTS: {
   ConfirmModal: ConfirmModal,
   AlertModal: () => <div>AlertModal</div>,
   ChangePasswordModal: ChangePasswordModal,
+  ErrorModal: ErrorModal,
 };
 
 const RenderModal = <T extends ModalTypes>({
