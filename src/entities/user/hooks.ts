@@ -5,9 +5,25 @@ import {
   useQueryClient,
 } from '@tanstack/react-query';
 import { USER_QUERY_KEYS } from '@/shared/lib/queryKeys';
-import { PaginationParams, QueryOptions } from '@/shared/types/query';
+import {
+  ApiResponse,
+  PaginationParams,
+  QueryOptions,
+} from '@/shared/types/query';
 import { userAPI } from './model';
-import { PagedModelEntityModelUser } from './types';
+import { EntityModelUser, PagedModelEntityModelUser } from './types';
+
+// 📌 1. 내 정보 조회
+export const useGetMyProfile = (
+  options?: QueryOptions<ApiResponse<{ user: EntityModelUser }>>,
+) => {
+  return useQuery<ApiResponse<{ user: EntityModelUser }>>({
+    queryKey: [...USER_QUERY_KEYS.detail, 'my'],
+    queryFn: () => userAPI.getMyProfile(),
+    placeholderData: keepPreviousData,
+    ...options,
+  });
+};
 
 // 📌 1. 유저 목록 조회 훅
 export const useGetUsers = (

@@ -2,14 +2,14 @@
 
 import { Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useLogin } from '@/entities/auth/hooks';
+import { useSetToken } from '@/entities/auth/hooks';
 import { Button } from '@/shared/ui/button/Button';
 
 const LoginButton = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get('redirect') || '/';
-  const useLoginMutation = useLogin();
+  const useLoginMutation = useSetToken();
 
   const handleLogin = () => {
     useLoginMutation.mutate(

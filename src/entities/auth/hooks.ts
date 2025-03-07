@@ -8,14 +8,12 @@ import {
 import { authAPI } from './model';
 import { Tokens } from './types';
 
-// 📌 1. 로그인
-export const useLogin = () => {
-  const queryClient = useQueryClient();
-
+// 📌 1. 토큰 저장
+export const useSetToken = () => {
   return useMutation<[], Error, Tokens>({
-    mutationFn: (tokens) => authAPI.login(tokens).then((res) => res),
+    mutationFn: (tokens) => authAPI.setToken(tokens).then((res) => res),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['users'] }); // 유저 목록 다시 불러오기
+      // TODO: 토큰 저장 후 invalid 되야 할 데이터가 있는지 확인 필요
     },
     onError: (err) => {
       console.error(err);
@@ -24,14 +22,12 @@ export const useLogin = () => {
   });
 };
 
-// 📌  2. 로그아웃
-export const useLogout = () => {
-  const queryClient = useQueryClient();
-
+// 📌  2. 토큰 삭제
+export const useDeleteToken = () => {
   return useMutation({
-    mutationFn: authAPI.logout,
+    mutationFn: authAPI.deleteToken,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['users'] }); // 유저 목록 다시 불러오기
+      // TODO: 토큰 삭제 후 invalid 되야 할 데이터가 있는지 확인 필요
     },
     onError: (err) => {
       console.error(err);

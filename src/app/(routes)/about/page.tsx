@@ -1,17 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { useLogout } from '@/entities/auth/hooks';
+import { useDeleteToken } from '@/entities/auth/hooks';
 import { authAPI } from '@/entities/auth/model';
 import { useGetUsers } from '@/entities/user/hooks';
 import { Button } from '@/shared/ui/button/Button';
 
 const AboutPage = () => {
-  const useLogoutMutation = useLogout();
+  const useDeleteTokenMutation = useDeleteToken();
   const { data } = useGetUsers({ page: 0, size: 20 });
 
   const handleLogout = () => {
-    useLogoutMutation.mutate(undefined, {
+    useDeleteTokenMutation.mutate(undefined, {
       onSuccess: (res) => {
         console.log(res);
       },

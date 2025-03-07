@@ -1,9 +1,15 @@
 import { typedFetch } from '@/shared/lib/apiClient';
 import { createSearchParams } from '@/shared/lib/createSearchParams';
-import { PaginationParams } from '@/shared/types/query';
-import { PagedModelEntityModelUser, User } from './types';
+import { ApiResponse, PaginationParams } from '@/shared/types/query';
+import { EntityModelUser, PagedModelEntityModelUser, User } from './types';
 
 export const userAPI = {
+  // 내 정보 가져오기
+  getMyProfile: async () => {
+    return typedFetch<ApiResponse<{ user: EntityModelUser }>>(
+      `/backend/api/v1/users`,
+    );
+  },
   // 유저 목록 가져오기
   getUsers: async (params: PaginationParams) => {
     return typedFetch<PagedModelEntityModelUser>(
