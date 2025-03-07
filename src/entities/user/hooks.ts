@@ -3,18 +3,20 @@ import {
   useMutation,
   useQuery,
   useQueryClient,
-  UseQueryOptions,
 } from '@tanstack/react-query';
+import { USER_QUERY_KEYS } from '@/shared/lib/queryKeys';
+import { PaginationParams, QueryOptions } from '@/shared/types/query';
 import { userAPI } from './model';
-import { User } from './types';
+import { PagedModelEntityModelUser } from './types';
 
 // 📌 1. 유저 목록 조회 훅
 export const useGetUsers = (
-  options?: Omit<UseQueryOptions<User[]>, 'queryKey' | 'queryFn'>,
+  params: PaginationParams,
+  options?: QueryOptions<PagedModelEntityModelUser>,
 ) => {
-  return useQuery<User[]>({
-    queryKey: ['users'],
-    queryFn: userAPI.getUsers,
+  return useQuery<PagedModelEntityModelUser>({
+    queryKey: USER_QUERY_KEYS.list,
+    queryFn: () => userAPI.getUsers(params),
     placeholderData: keepPreviousData,
     ...options,
   });
