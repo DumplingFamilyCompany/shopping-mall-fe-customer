@@ -19,6 +19,14 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async rewrites() {
+    return [
+      {
+        source: process.env.NEXT_PUBLIC_SOURCE_PATH || '',
+        destination: process.env.NEXT_PUBLIC_BASE_URL || '',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
