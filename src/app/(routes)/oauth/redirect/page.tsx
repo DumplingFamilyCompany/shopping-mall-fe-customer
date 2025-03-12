@@ -18,7 +18,8 @@ const OauthRedirectPage = () => {
       {
         onSuccess: (res) => {
           console.log(res);
-          router.push('/mypage');
+
+          //   router.push('/mypage');
         },
         onError: (err) => {
           console.error(err);
