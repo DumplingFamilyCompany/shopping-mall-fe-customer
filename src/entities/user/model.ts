@@ -1,6 +1,6 @@
 import { typedFetch } from '@/shared/lib/apiClient';
 import { createSearchParams } from '@/shared/lib/createSearchParams';
-import { ApiResponse, PaginationParams } from '@/shared/types/query';
+import { ApiResponse, PaginationParams } from '@/shared/types/api';
 import { EntityModelUser, PagedModelEntityModelUser, User } from './types';
 
 export const userAPI = {

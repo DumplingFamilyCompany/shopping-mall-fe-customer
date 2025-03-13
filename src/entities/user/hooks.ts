@@ -9,7 +9,7 @@ import {
   ApiResponse,
   PaginationParams,
   QueryOptions,
-} from '@/shared/types/query';
+} from '@/shared/types/api';
 import { userAPI } from './model';
 import { EntityModelUser, PagedModelEntityModelUser } from './types';
 

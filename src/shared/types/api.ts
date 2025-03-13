@@ -17,3 +17,9 @@ export type ApiResponseHeader = {
   code: number;
   message: string;
 };
+
+export type CommonResult = {
+  success: boolean;
+  code: number;
+  message: string;
+};

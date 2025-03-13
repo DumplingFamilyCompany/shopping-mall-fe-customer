@@ -1307,6 +1307,11 @@
     "@parcel/watcher-win32-ia32" "2.5.1"
     "@parcel/watcher-win32-x64" "2.5.1"
 
+"@portone/browser-sdk@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@portone/browser-sdk/-/browser-sdk-0.0.13.tgz#9488b50999d58bb32471e0b9ec883c5f55186a4a"
+  integrity sha512-B74stKPEYGXoVaBrWnQCPAs8N3bPHsHt5fxcunQmNqmEhWn3KWjXS8D6nkq7O15KljJA1qLOBr6bBH7vDP0kCQ==
+
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@rtsao/scc/-/scc-1.1.0.tgz#927dd2fae9bc3361403ac2c7a00c32ddce9ad7e8"
