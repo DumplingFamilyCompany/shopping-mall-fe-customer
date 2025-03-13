@@ -4,14 +4,17 @@ export type User = {
   email: string;
 };
 
+export type ProviderType = 'GOOGLE' | 'FACEBOOK' | 'NAVER' | 'KAKAO' | 'LOCAL';
+export type RoleType = 'USER' | 'ADMIN' | 'GUEST';
+
 export type EntityModelUser = {
   userId: string;
   username: string;
   email: string;
   emailVerifiedYn: string;
   profileImageUrl: string;
-  providerType: 'GOOGLE' | 'FACEBOOK' | 'NAVER' | 'KAKAO' | 'LOCAL';
-  roleType: 'USER' | 'ADMIN' | 'GUEST';
+  providerType: ProviderType;
+  roleType: RoleType;
   createdAt: string;
   modifiedAt: string;
   _links: unknown;
@@ -45,4 +48,18 @@ export type PagedModelEntityModelUser = {
   };
   _links: Links;
   page: PageMetadata;
+};
+
+export type UserResponse = {
+  id: number;
+  username: string;
+  email: string;
+  providerType: ProviderType;
+  role: RoleType;
+  createdAt: string;
+  suspended: boolean;
+};
+
+export type UserSuspendRequest = {
+  suspended: boolean;
 };

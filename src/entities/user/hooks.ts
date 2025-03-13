@@ -13,7 +13,7 @@ import {
 import { userAPI } from './model';
 import { EntityModelUser, PagedModelEntityModelUser } from './types';
 
-// 📌 1. 내 정보 조회
+// 📌 내 정보 조회
 export const useGetMyProfile = (
   options?: QueryOptions<ApiResponse<{ user: EntityModelUser }>>,
 ) => {
@@ -25,7 +25,7 @@ export const useGetMyProfile = (
   });
 };
 
-// 📌 1. 유저 목록 조회 훅
+// 📌 유저 목록 조회
 export const useGetUsers = (
   params: PaginationParams,
   options?: QueryOptions<PagedModelEntityModelUser>,
@@ -38,16 +38,37 @@ export const useGetUsers = (
   });
 };
 
-// 📌 2. 특정 유저 조회 훅
-export const useGetUserById = (id: string) => {
+// 📌 유저 상세 조회
+export const useGetUserById = (id: number) => {
   return useQuery({
-    queryKey: ['user', id],
+    queryKey: [...USER_QUERY_KEYS.detail, id],
     queryFn: () => userAPI.getUserById(id),
     enabled: !!id, // id가 존재할 때만 실행
   });
 };
 
-// 📌 3. 유저 생성 훅
+// 📌 유저 계정 정지
+export const useSuspendUserById = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: userAPI.suspendUserById,
+    onSuccess: (_, variables) => {
+      Promise.all([
+        queryClient.invalidateQueries({ queryKey: USER_QUERY_KEYS.list }),
+        queryClient.invalidateQueries({
+          queryKey: [...USER_QUERY_KEYS.detail, variables],
+        }),
+      ]);
+    },
+    onError: (err) => {
+      console.error(err);
+      alert(err);
+    },
+  });
+};
+
+// 📌 유저 생성 훅
 export const useCreateUser = () => {
   const queryClient = useQueryClient();
 
@@ -63,7 +84,7 @@ export const useCreateUser = () => {
   });
 };
 
-// 📌 4. 유저 삭제 훅
+// 📌 유저 삭제 훅
 export const useDeleteUser = () => {
   const queryClient = useQueryClient();
 
