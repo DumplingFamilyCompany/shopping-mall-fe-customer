@@ -1,4 +1,4 @@
-import { typedFetch } from '@/shared/lib/apiClient';
+import { typedFetch } from '@/shared/api/apiClient';
 import { ApiResponse, ById } from '@/shared/types/api';
 import { EntityModelUser, UserResponse, UserSuspendRequest } from './types';
 
@@ -21,7 +21,7 @@ export const userAPI = {
   },
 
   // 📌 회원 계정 정지
-  suspendUserById: async ({ id }: ById, payload: UserSuspendRequest) => {
+  suspendUser: async ({ id }: ById, payload: UserSuspendRequest) => {
     return typedFetch<string>(
       `/backend/api/v1/admin/users/${id}/suspend`,
       'PUT',

@@ -1,4 +1,4 @@
-import { typedFetch } from '@/shared/lib/apiClient';
+import { typedFetch } from '@/shared/api/apiClient';
 import { ById } from '@/shared/types/api';
 import { OrderResponse } from './types';
 

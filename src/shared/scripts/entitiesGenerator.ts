@@ -32,8 +32,8 @@ const createFolderAndFile = (
 
 // model.ts 기본 내용
 const defaultModelContent = `
-  import { typedFetch } from '@/shared/lib/apiClient';
-  import { createSearchParams } from '@/shared/lib/createSearchParams';
+  import { typedFetch } from '@/shared/api/apiClient';
+  import { createSearchParams } from '@/shared/api/createSearchParams';
 
   export const ${folderName}API = {
     // 유저 목록 가져오기

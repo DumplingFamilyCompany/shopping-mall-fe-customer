@@ -1,4 +1,4 @@
-import { typedFetch } from '@/shared/lib/apiClient';
+import { typedFetch } from '@/shared/api/apiClient';
 import { Tokens } from './types';
 
 export const authAPI = {

@@ -1,4 +1,4 @@
-import { typedFetch } from '@/shared/lib/apiClient';
+import { typedFetch } from '@/shared/api/apiClient';
 import { ById, CommonResult } from '@/shared/types/api';
 import { AdminCreateRequest, AdminLoginRequest, AdminResponse } from './types';
 
