@@ -1,13 +1,6 @@
 import { typedFetch } from '@/shared/lib/apiClient';
-import { createSearchParams } from '@/shared/lib/createSearchParams';
-import { ApiResponse, PaginationParams } from '@/shared/types/api';
-import {
-  EntityModelUser,
-  PagedModelEntityModelUser,
-  User,
-  UserResponse,
-  UserSuspendRequest,
-} from './types';
+import { ApiResponse, ById } from '@/shared/types/api';
+import { EntityModelUser, UserResponse, UserSuspendRequest } from './types';
 
 export const userAPI = {
   // 📌 내 정보 가져오기
@@ -17,33 +10,22 @@ export const userAPI = {
     );
   },
 
-  // 📌 유저 목록 가져오기
-  getUsers: async (params: PaginationParams) => {
-    return typedFetch<PagedModelEntityModelUser>(
-      `/backend/users?${createSearchParams(params)}`,
-    );
+  // 📌 회원 리스트 조회
+  getUserList: async () => {
+    return typedFetch<UserResponse[]>(`/backend/api/v1/admin/users`);
   },
 
-  // 📌 유저 상세 조회
-  getUserById: async (id: number) => {
+  // 📌 회원 상세 조회
+  getUserDetail: async ({ id }: ById) => {
     return typedFetch<UserResponse>(`/backend/api/v1/admin/users/${id}`);
   },
 
-  // 유저 계정 정지
-  suspendUserById: async (id: number) => {
-    return typedFetch<UserSuspendRequest>(
+  // 📌 회원 계정 정지
+  suspendUserById: async ({ id }: ById, payload: UserSuspendRequest) => {
+    return typedFetch<string>(
       `/backend/api/v1/admin/users/${id}/suspend`,
       'PUT',
+      payload,
     );
-  },
-
-  // 유저 생성 (POST)
-  createUser: async (userData: { name: string; email: string }) => {
-    return typedFetch<User>('/api/users', 'POST', userData);
-  },
-
-  // 유저 삭제 (DELETE)
-  deleteUser: async (id: string) => {
-    return typedFetch<void>(`/api/users/${id}`, 'DELETE');
   },
 };

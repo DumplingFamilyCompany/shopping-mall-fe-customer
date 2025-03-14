@@ -23,3 +23,5 @@ export type CommonResult = {
   code: number;
   message: string;
 };
+
+export type ById = { id: number };

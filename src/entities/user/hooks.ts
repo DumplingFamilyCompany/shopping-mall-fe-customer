@@ -25,7 +25,7 @@ export const useGetMyProfile = (
   });
 };
 
-// 📌 유저 목록 조회
+// 📌 회원 리스트 조회
 export const useGetUsers = (
   params: PaginationParams,
   options?: QueryOptions<PagedModelEntityModelUser>,
@@ -38,7 +38,7 @@ export const useGetUsers = (
   });
 };
 
-// 📌 유저 상세 조회
+// 📌 회원 상세 조회
 export const useGetUserById = (id: number) => {
   return useQuery({
     queryKey: [...USER_QUERY_KEYS.detail, id],
@@ -47,7 +47,7 @@ export const useGetUserById = (id: number) => {
   });
 };
 
-// 📌 유저 계정 정지
+// 📌 회원 계정 정지
 export const useSuspendUserById = () => {
   const queryClient = useQueryClient();
 
@@ -64,34 +64,6 @@ export const useSuspendUserById = () => {
     onError: (err) => {
       console.error(err);
       alert(err);
-    },
-  });
-};
-
-// 📌 유저 생성 훅
-export const useCreateUser = () => {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: userAPI.createUser,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['users'] }); // 유저 목록 다시 불러오기
-    },
-    onError: (err) => {
-      console.error(err);
-      alert(err);
-    },
-  });
-};
-
-// 📌 유저 삭제 훅
-export const useDeleteUser = () => {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: userAPI.deleteUser,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['users'] }); // 유저 목록 다시 불러오기
     },
   });
 };
