@@ -1,14 +1,21 @@
 'use client';
 
-import Link from 'next/link';
+import { useState } from 'react';
 import { useDeleteToken } from '@/entities/auth/hooks';
-import { useGetUsers } from '@/entities/user/hooks';
-import { Button } from '@/shared/ui/button/Button';
+import { useGetUserDetail, useGetUserList } from '@/entities/user/hooks';
+import { PaymentStatus } from '@/shared/types/payment';
+import Button from '@/shared/ui/button/Button';
+import PaymentButton from '@/shared/ui/paymentButton/PaymentButton';
 
 const AboutPage = () => {
   const useDeleteTokenMutation = useDeleteToken();
+  const [paymentStatus, setPaymentStatus] = useState<{
+    status: PaymentStatus;
+    errorMessage?: string;
+  }>({ status: 'IDLE' });
 
-  const { data } = useGetUsers({ page: 0, size: 20 });
+  const { data } = useGetUserList();
+  const { data: userDetailData } = useGetUserDetail({ id: 1 });
 
   const handleLogout = () => {
     useDeleteTokenMutation.mutate(undefined, {
@@ -21,12 +28,27 @@ const AboutPage = () => {
   return (
     <div>
       <h2>유저 리스트는용~</h2>
-      {data?._embedded.users.map((user) => (
-        <div key={user.userId}>
-          id: {user.userId}, name: {user.username}
+      {data?.map((user) => (
+        <div key={user.username}>
+          id: {user.id}, name: {user.username}
         </div>
       ))}
-      <Button.Filled onClick={handleLogout}>로그아웃 시작</Button.Filled>
+      <br />
+      <h2>
+        상세 유저는용 <br />
+        name: {userDetailData?.username}
+        provider: {userDetailData?.providerType}
+      </h2>
+      <br />
+      <PaymentButton
+        itemId="id"
+        itemName="name"
+        itemPrice={20000}
+        paymentMethod="CARD"
+        paymentStatus={paymentStatus}
+        onPaymentStatusChange={setPaymentStatus}
+      />
+      <Button onClick={handleLogout}>로그아웃 시작</Button>
     </div>
   );
 };

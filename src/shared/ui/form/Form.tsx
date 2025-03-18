@@ -6,7 +6,7 @@ import {
   FieldValues,
 } from 'react-hook-form';
 import useModal from '@/shared/hooks/useModal';
-import { Button } from '../button/Button';
+import Button from '../button/Button';
 import ContentFrame from '../contentFrame/ContentFrame';
 import FlexBox from '../flexBox/FlexBox';
 import TextInput from '../input/TextInput';
@@ -153,7 +153,7 @@ const SingleSelectField = <TFieldValues extends FieldValues = FieldValues>({
       render={({ field: { value, onChange } }) => {
         if (!value?.id) {
           return (
-            <Button.Filled
+            <Button
               iconName="add"
               width="98px"
               height="40px"
@@ -162,14 +162,14 @@ const SingleSelectField = <TFieldValues extends FieldValues = FieldValues>({
               }
             >
               선택
-            </Button.Filled>
+            </Button>
           );
         }
 
         return (
           <div className={styles.selectFieldContainer}>
             {value?.label}
-            <Button.Filled
+            <Button
               width="78px"
               height="40px"
               onClick={() =>
@@ -181,7 +181,7 @@ const SingleSelectField = <TFieldValues extends FieldValues = FieldValues>({
               }
             >
               변경
-            </Button.Filled>
+            </Button>
           </div>
         );
       }}
@@ -213,7 +213,7 @@ const MultiSelectField = <TFieldValues extends FieldValues = FieldValues>({
       render={({ field: { value, onChange } }) => {
         if (!value?.length) {
           return (
-            <Button.Filled
+            <Button
               iconName="add"
               width="98px"
               height="40px"
@@ -222,7 +222,7 @@ const MultiSelectField = <TFieldValues extends FieldValues = FieldValues>({
               }
             >
               선택
-            </Button.Filled>
+            </Button>
           );
         }
 
@@ -244,7 +244,7 @@ const MultiSelectField = <TFieldValues extends FieldValues = FieldValues>({
                 />
               ))}
             </div>
-            <Button.Filled
+            <Button
               width="78px"
               height="40px"
               onClick={() =>
@@ -256,7 +256,7 @@ const MultiSelectField = <TFieldValues extends FieldValues = FieldValues>({
               }
             >
               변경
-            </Button.Filled>
+            </Button>
           </div>
         );
       }}

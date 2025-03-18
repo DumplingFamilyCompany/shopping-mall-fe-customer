@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import useOutsideClick from '@/shared/hooks/useOutsideClick';
-import { Button } from '../button/Button';
+import Button from '../button/Button';
 import Icon from '../icon/Icon';
 import TextInput from '../input/TextInput';
 import {
@@ -123,9 +123,9 @@ const SearchBar = ({
           hasLeftIcon
         />
       </TextInput>
-      <Button.Filled width="78px" height="40px" fontSize="16px">
+      <Button width="78px" height="40px" fontSize="16px">
         검색
-      </Button.Filled>
+      </Button>
     </div>
   );
 };

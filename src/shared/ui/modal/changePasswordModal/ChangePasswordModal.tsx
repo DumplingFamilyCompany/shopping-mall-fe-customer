@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { Button } from '@/shared/ui/button/Button';
+import Button from '@/shared/ui/button/Button';
 import Form from '@/shared/ui/form/Form';
 import GuidanceMessage from '@/shared/ui/guidanceMessage/GuidanceMessage';
 import Spacer from '@/shared/ui/spacer/Spacer';
@@ -60,13 +60,13 @@ const ChangePasswordModal = () => {
             const disabled = !!values.filter((value) => !value).length;
 
             return (
-              <Button.Filled
+              <Button
                 width="200px"
                 onClick={handleCompleteButton}
                 disabled={disabled}
               >
                 선택 완료
-              </Button.Filled>
+              </Button>
             );
           }}
         />

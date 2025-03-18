@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Button } from '@/shared/ui/button/Button';
+import Button from '@/shared/ui/button/Button';
 
 const LoginForm = () => {
   const router = useRouter();
@@ -12,7 +12,7 @@ const LoginForm = () => {
   return (
     <div>
       <Link href="/api/auth/kakao">
-        <Button.Filled>카카오 로그인</Button.Filled>
+        <Button>카카오 로그인</Button>
       </Link>
     </div>
   );

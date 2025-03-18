@@ -10,11 +10,11 @@ type ButtonProps = {
   iconName?: IconNames;
   disabled?: boolean;
   fontSize?: string;
-  variant?: 'button1' | 'primary1' | 'primary2';
+  variant?: 'filled' | 'border';
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 };
 
-const Filled = memo(
+const Button = memo(
   ({
     children,
     width = '164px',
@@ -22,7 +22,7 @@ const Filled = memo(
     iconName,
     disabled,
     fontSize = '20px',
-    variant = 'button1',
+    variant = 'filled',
     onClick,
   }: ButtonProps) => {
     return (
@@ -31,34 +31,16 @@ const Filled = memo(
         style={{ width, height, fontSize }}
         onClick={onClick}
       >
-        {iconName && <Icon fill="#ffffff" name={iconName} />}
+        {iconName && (
+          <Icon
+            fill={variant === 'filled' ? '#ffffff' : '#334155'}
+            name={iconName}
+          />
+        )}
         {children}
       </button>
     );
   },
 );
 
-const Border = memo(
-  ({
-    children,
-    width = '164px',
-    height = '52px',
-    iconName,
-    disabled,
-    fontSize = '20px',
-    onClick,
-  }: ButtonProps) => {
-    return (
-      <button
-        className={`${styles.border} ${iconName ? styles.withIcon : ''} ${disabled ? styles.disabled : ''}`}
-        style={{ width, height, fontSize }}
-        onClick={onClick}
-      >
-        {iconName && <Icon fill="#334155" name={iconName} />}
-        {children}
-      </button>
-    );
-  },
-);
-
-export const Button = { Border, Filled };
+export default Button;

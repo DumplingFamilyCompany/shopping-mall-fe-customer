@@ -1,8 +1,8 @@
+import { useEffect } from 'react';
 import { createRandomId } from '@/shared/lib/createRandomId';
 import { PaymentMethod, PaymentStatus } from '@/shared/types/payment';
 import { Currency } from '@portone/browser-sdk/dist/v2/entity';
 import PortOne from '@portone/browser-sdk/v2';
-import { Button } from '../button/Button';
 import styles from './paymentButton.module.scss';
 
 type PaymentButtonProps = {
