@@ -1,0 +1,29 @@
+@mixin responsive-padding($min, $fluid, $max) {
+  padding: clamp(#{$min}, #{$fluid}, #{$max});
+}
+
+@mixin responsive-padding-top($min, $fluid, $max) {
+  padding-top: clamp(#{$min}, #{$fluid}, #{$max});
+}
+
+@mixin responsive-padding-bottom($min, $fluid, $max) {
+  padding-bottom: clamp(#{$min}, #{$fluid}, #{$max});
+}
+
+@mixin responsive-padding-left($min, $fluid, $max) {
+  padding-left: clamp(#{$min}, #{$fluid}, #{$max});
+}
+
+@mixin responsive-padding-right($min, $fluid, $max) {
+  padding-right: clamp(#{$min}, #{$fluid}, #{$max});
+}
+
+@mixin responsive-padding-x($min, $fluid, $max) {
+  padding-left: clamp(#{$min}, #{$fluid}, #{$max});
+  padding-right: clamp(#{$min}, #{$fluid}, #{$max});
+}
+
+@mixin responsive-padding-y($min, $fluid, $max) {
+  padding-top: clamp(#{$min}, #{$fluid}, #{$max});
+  padding-bottom: clamp(#{$min}, #{$fluid}, #{$max});
+}

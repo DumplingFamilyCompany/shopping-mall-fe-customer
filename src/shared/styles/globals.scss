@@ -1,3 +1,6 @@
+@use '@/shared/styles/colors';
+@use '@/shared/styles/mixins';
+
 @font-face {
   font-family: 'GeistSans';
   src: url('/fonts/GeistVF.woff') format('woff');
@@ -21,6 +24,7 @@
 
 html,
 body {
+  font-size: 62.5%; /* 1rem = 10px */
   max-width: 100vw;
   overflow-x: hidden;
 }

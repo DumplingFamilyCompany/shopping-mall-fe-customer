@@ -1,0 +1,24 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  padding: 6.4rem 14rem 6.2rem 8.583rem;
+  font-size: 2rem;
+}
+
+.navLogo {
+}
+
+.navMenu {
+  display: flex;
+  gap: 7.1rem;
+  margin-left: 10.847rem;
+  color: var(--gray-4);
+}
+
+.navLogin {
+  font-size: 1.8rem;
+  margin-left: auto;
+}
