@@ -88,3 +88,31 @@
   border-top: 1px solid var(--black-1);
   background-color: var(--yellow-1);
 }
+
+.visitServiceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.visitServiceCardInner {
+  padding-top: 226px;
+  @include responsive-padding-bottom(
+    8.137rem,
+    calc(1.762rem + 16.999vw),
+    34.4rem
+  );
+  @include responsive-padding-x(7.5rem, calc(-6.505rem + 37.346vw), 65.2rem);
+  text-align: center;
+}
+
+.visitServiceReserveButton {
+  width: clamp(17.5rem, calc(16.068rem + 3.819vw), 23.4rem);
+  height: clamp(5.8rem, calc(5.072rem + 1.942vw), 8.8rem);
+  font-size: clamp(1.4rem, calc(1.157rem + 0.647vw), 2.4rem);
+  outline: none;
+  color: var(--black-1);
+  background-color: var(--yellow-1);
+  border: 1px solid var(--gray-6);
+  margin-top: clamp(8rem, calc(6.835rem + 3.107vw), 12.8rem);
+}

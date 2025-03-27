@@ -3,7 +3,7 @@ import { JSX } from 'react';
 type TypographyProps = {
   children: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
-  fontWeight?: 'normal' | 'bold' | number;
+  fontWeight?: 'normal' | 'bold' | 'medium' | number;
   fontFamily?: 'Arial' | 'Pretendard' | 'Futura' | 'Nimbus';
   fontSize?: string;
   color?: string;

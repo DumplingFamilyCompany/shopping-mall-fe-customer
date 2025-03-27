@@ -1,0 +1,60 @@
+@use '@/shared/styles/mixins' as *;
+
+.footer {
+  .companyInfo {
+    padding-top: clamp(10.613rem, calc(10.592rem + 0.056vw), 10.7rem);
+    padding-bottom: clamp(8.2rem, calc(6.744rem + 3.883vw), 14.2rem);
+    padding-left: clamp(2.1rem, calc(-2.293rem + 11.715vw), 20.2rem);
+    color: var(--black-1);
+    background-color: var(--white-1);
+
+    .basicInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .divider {
+        display: inline-block;
+        width: 1px;
+        height: 13px;
+        background-color: var(--gray-4);
+        margin: 0 8px;
+      }
+    }
+
+    .infoLinks {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: clamp(2.8rem, calc(2.412rem + 1.036vw), 4.4rem);
+
+      a {
+        font-family: 'Pretendard';
+        font-size: clamp(1.4rem, calc(1.303rem + 0.259vw), 1.8rem);
+      }
+    }
+  }
+
+  .customerService {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: clamp(9.6rem, calc(9.017rem + 1.553vw), 12rem);
+    @include responsive-padding-x(2.1rem, calc(-2.293rem + 11.715vw), 20.2rem);
+    color: var(--black-1);
+    background-color: var(--yellow-2);
+
+    .operationHour {
+    }
+  }
+
+  .copyright {
+    padding-top: clamp(5.8rem, calc(4.756rem + 2.783vw), 10.1rem);
+    padding-bottom: clamp(29.6rem, calc(28.896rem + 1.877vw), 32.5rem);
+    font-size: clamp(1.2rem, calc(1.103rem + 0.259vw), 1.6rem);
+    letter-spacing: clamp(-0.051rem, calc(-0.054rem + 0.008vw), -0.038rem);
+    text-align: center;
+    color: var(--white-1);
+    background-color: var(--black-1);
+  }
+}

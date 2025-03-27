@@ -1,5 +1,6 @@
 import CardGroup from '../ui/CardGroup';
 import MainCard from '../ui/MainCard';
+import VisitServiceCard from '../ui/VisitServiceCard';
 import styles from './HomeContainer.module.scss';
 
 const HomeContainer = () => {
@@ -26,6 +27,9 @@ const HomeContainer = () => {
           <CardGroup.TextCard />
           <CardGroup.LogoCard />
         </CardGroup>
+      </section>
+      <section className={styles.section}>
+        <VisitServiceCard />
       </section>
     </main>
   );
