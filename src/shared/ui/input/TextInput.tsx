@@ -1,4 +1,5 @@
 import Icon from '../icon/Icon';
+import Typography from '../typography/Typography';
 import styles from './textInput.module.scss';
 
 const TextInput = ({ children }: { children: React.ReactNode }) => {
@@ -7,14 +8,33 @@ const TextInput = ({ children }: { children: React.ReactNode }) => {
 
 const Label = ({
   children,
-  width,
+  // width,
+  required,
+  description,
 }: {
   children: React.ReactNode;
-  width?: string;
+  // width?: string;
+  required?: boolean;
+  description?: string;
 }) => {
   return (
-    <div className={styles.label} style={{ width }}>
-      {children}
+    <div className={styles.labelContainer}>
+      <Typography className={styles.label} fontSize="20px" fontWeight="bold">
+        {children}
+        {required && (
+          <Typography as="span" marginLeft="4px">
+            *
+          </Typography>
+        )}
+      </Typography>
+      <div className={styles.spacer} />
+      {description && (
+        <div className={styles.description}>
+          <Typography fontSize="18px" marginLeft="4px">
+            {description}
+          </Typography>
+        </div>
+      )}
     </div>
   );
 };
@@ -27,6 +47,7 @@ const Field = ({
   width,
   height,
   value = '',
+  onlyNumbers,
   onChange,
 }: {
   placeholder?: string;
@@ -36,6 +57,7 @@ const Field = ({
   width?: string;
   height?: string;
   value?: string;
+  onlyNumbers?: boolean;
   onChange: (value: string) => void;
 }) => {
   return (
@@ -48,16 +70,17 @@ const Field = ({
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        inputMode={onlyNumbers ? 'numeric' : undefined}
+        pattern={onlyNumbers ? '[0-9]*' : undefined}
+        onInput={(e) => {
+          if (!onlyNumbers) return;
+
+          const onlyNums = e.currentTarget.value.replace(/[^0-9]/g, '');
+          e.currentTarget.value = onlyNums;
+          onChange?.(onlyNums);
+        }}
         disabled={disabled}
       />
-      {(hasLeftIcon || hasRightIcon) && (
-        <Icon
-          name="add"
-          className={styles.icon}
-          style={hasLeftIcon ? { left: 0 } : { right: 0 }}
-          fill="#64758B"
-        />
-      )}
     </div>
   );
 };

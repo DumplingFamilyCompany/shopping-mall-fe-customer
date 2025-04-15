@@ -2,6 +2,7 @@ import ChangePasswordModal from './changePasswordModal/ChangePasswordModal';
 import ConfirmModal from './confirmModal/ConfirmModal';
 import ErrorModal from './errorModal/ErrorModal';
 import { ModalConfig, ModalPropsMap, ModalTypes } from './modal.types';
+import PreReservationModal from './preReservationModal/PreReservationModal';
 
 const MODAL_COMPONENTS: {
   [K in ModalTypes]: React.FC<ModalPropsMap[K]>;
@@ -10,6 +11,7 @@ const MODAL_COMPONENTS: {
   AlertModal: () => <div>AlertModal</div>,
   ChangePasswordModal: ChangePasswordModal,
   ErrorModal: ErrorModal,
+  PreReservationModal: PreReservationModal,
 };
 
 const RenderModal = <T extends ModalTypes>({

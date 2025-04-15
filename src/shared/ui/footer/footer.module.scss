@@ -1,3 +1,4 @@
+@use '@/shared/styles/colors';
 @use '@/shared/styles/mixins' as *;
 
 .footer {
@@ -5,8 +6,8 @@
     padding-top: clamp(10.613rem, calc(10.592rem + 0.056vw), 10.7rem);
     padding-bottom: clamp(8.2rem, calc(6.744rem + 3.883vw), 14.2rem);
     padding-left: clamp(2.1rem, calc(-2.293rem + 11.715vw), 20.2rem);
-    color: var(--black-1);
-    background-color: var(--white-1);
+    color: colors.$black-1;
+    background-color: colors.$white-1;
 
     .basicInfo {
       display: flex;
@@ -17,7 +18,7 @@
         display: inline-block;
         width: 1px;
         height: 13px;
-        background-color: var(--gray-4);
+        background-color: colors.$gray-4;
         margin: 0 8px;
       }
     }
@@ -40,11 +41,15 @@
     align-items: center;
     justify-content: space-between;
     height: clamp(9.6rem, calc(9.017rem + 1.553vw), 12rem);
+
     @include responsive-padding-x(2.1rem, calc(-2.293rem + 11.715vw), 20.2rem);
-    color: var(--black-1);
-    background-color: var(--yellow-2);
+    color: colors.$black-1;
+    background-color: colors.$yellow-2;
 
     .operationHour {
+      @include media(tablet) {
+        display: none;
+      }
     }
   }
 
@@ -54,7 +59,7 @@
     font-size: clamp(1.2rem, calc(1.103rem + 0.259vw), 1.6rem);
     letter-spacing: clamp(-0.051rem, calc(-0.054rem + 0.008vw), -0.038rem);
     text-align: center;
-    color: var(--white-1);
-    background-color: var(--black-1);
+    color: colors.$white-1;
+    background-color: colors.$black-1;
   }
 }

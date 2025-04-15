@@ -1,0 +1,14 @@
+@use '@/shared/styles/colors';
+
+.container {
+  background-color: colors.$white-1;
+}
+
+.nav {
+  background-color: colors.$white-1;
+  height: 15rem;
+}
+
+.section {
+  border-bottom: 1px solid colors.$black-1;
+}

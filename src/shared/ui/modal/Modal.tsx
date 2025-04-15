@@ -2,8 +2,9 @@
 
 import useModal from '@/shared/hooks/useModal';
 import Icon from '../icon/Icon';
+import Typography from '../typography/Typography';
 import { ModalContext, useModalContext } from './modal.context';
-import styles from './modal.module.css';
+import styles from './modal.module.scss';
 import { ModalTypes } from './modal.types';
 
 type ModalProps = {
@@ -35,14 +36,11 @@ const Modal = ({ type, children, width }: ModalProps) => {
 };
 
 const Title = ({ children }: { children: React.ReactNode }) => {
-  const { handleCloseModal } = useModalContext();
-
   return (
     <div className={styles.titleContainer}>
-      <h6 className={styles.title}>{children}</h6>
-      <button onClick={handleCloseModal}>
-        <Icon name="close" width="24px" height="24px" />
-      </button>
+      <Typography fontSize="32px" fontWeight="bold">
+        {children}
+      </Typography>
     </div>
   );
 };

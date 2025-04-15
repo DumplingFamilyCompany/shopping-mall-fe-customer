@@ -1,0 +1,9 @@
+.formRowContainer {
+  margin-bottom: 60px;
+}
+
+.modelSelectorGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}

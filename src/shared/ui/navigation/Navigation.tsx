@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { NAV_ITEMS } from '@/shared/config/routes';
-import styles from './navigation.module.css';
+import styles from './navigation.module.scss';
 
 const Navigation = () => {
   return (

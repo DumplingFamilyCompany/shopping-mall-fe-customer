@@ -1,5 +1,6 @@
+import Button from '@/shared/ui/button/Button';
 import Typography from '@/shared/ui/typography/Typography';
-import styles from './card.module.scss';
+import styles from './VisitServiceCard.module.scss';
 
 const VisitServiceCard = () => {
   return (
@@ -26,13 +27,23 @@ const VisitServiceCard = () => {
           fontFamily="Pretendard"
           fontSize="clamp(1.4rem, calc(1.254rem + 0.388vw), 2rem)"
           letterSpacing="clamp(-0.064rem, calc(-0.069rem + 0.012vw), -0.045rem)"
+          marginBottom="clamp(8rem, calc(6.835rem + 3.107vw), 12.8rem)"
           color="#A0A0A0"
         >
           사전예약 고객님들에 한정한 이벤트 입니다.
         </Typography>
-        <button className={styles.visitServiceReserveButton}>
+        <Button
+          variant="yellow"
+          width="clamp(17.5rem, calc(16.068rem + 3.819vw), 23.4rem)"
+          height="clamp(5.8rem, calc(5.072rem + 1.942vw), 8.8rem)"
+          fontSize="clamp(1.4rem, calc(1.157rem + 0.647vw), 2.4rem)"
+          borderTop
+          borderBottom
+          borderLeft
+          borderRight
+        >
           설치 상담신청하기
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -1,0 +1,82 @@
+@use '@/shared/styles/colors';
+@use '@/shared/styles/mixins' as *;
+
+// 재사용 가능한 스타일 정의
+@mixin squareCardStyle {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.mainCard {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.textCard {
+  @include squareCardStyle;
+  background-color: colors.$gray-1;
+}
+
+.textCardInner {
+  @include responsive-padding-top(6.2rem, 8vw, 13.5rem);
+  @include responsive-padding-bottom(6.2rem, calc(3.797rem + 6.408vw), 16.1rem);
+  @include responsive-padding-left(2.8rem, 3.5vw, 5.5rem);
+  @include responsive-padding-right(2.8rem, 3.5vw, 5.5rem);
+}
+
+.imageCard {
+  @include squareCardStyle;
+  background-color: aqua;
+}
+
+.logoCard {
+  @include squareCardStyle;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: colors.$gray-3;
+
+  p {
+    // 텍스트가 center border 위로 올라오도록 하기 위함
+    z-index: 3;
+  }
+}
+
+.logoCardYellow {
+  background-color: colors.$yellow-1;
+}
+
+.logoCardCenterBorder {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: colors.$gray-6;
+  transform: translateX(-0.5px);
+}
+
+.productOverviewCard {
+  width: 100%;
+}
+
+.productOverviewCardInner {
+  @include responsive-padding-top(10.9rem, calc(6.07rem + 12.88vw), 30.8rem);
+  @include responsive-padding-bottom(12.1rem, calc(9.6rem + 6.667vw), 22.4rem);
+  @include responsive-padding-x(2rem, calc(0.325rem + 4.466vw), 8.9rem);
+  text-align: center;
+}
+
+.productOverviewButton {
+  width: 100%;
+  height: clamp(9.6rem, calc(9.017rem + 1.553vw), 12rem);
+  color: colors.$black-1;
+  font-size: clamp(1.6rem, calc(1.406rem + 0.518vw), 2.4rem);
+  outline: none;
+  border: none;
+  border-top: 1px solid colors.$black-1;
+  background-color: colors.$yellow-1;
+}

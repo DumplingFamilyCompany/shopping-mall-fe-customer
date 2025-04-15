@@ -1,0 +1,19 @@
+@use '@/shared/styles/colors';
+
+.button {
+  &:disabled {
+    color: #dbdbdb;
+    background-color: colors.$gray-1;
+    cursor: not-allowed;
+  }
+}
+
+.yellow {
+  color: colors.$black-1;
+  background-color: colors.$yellow-1;
+}
+
+.gray {
+  color: colors.$black-1;
+  background-color: #f7f7f7;
+}

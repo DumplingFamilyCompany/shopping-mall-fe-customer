@@ -14,12 +14,14 @@ const Select = ({
   children,
   value,
   hasLabel = false,
+  width,
   onChange,
   onClose,
 }: {
   children: React.ReactNode;
   value?: SelectedValue;
   hasLabel?: boolean;
+  width?: string;
   onChange: (selected: SelectedValue) => void;
   onClose?: () => void;
 }) => {
@@ -47,6 +49,7 @@ const Select = ({
       value={{
         selectedValue: value,
         isOpened,
+        width,
         handleTrigger,
         onChange: handleSelect,
       }}
@@ -69,25 +72,21 @@ const Trigger = ({
   placeholder?: string;
   children: React.ReactNode;
 }) => {
-  const { selectedValue, handleTrigger } = useSelectContext();
+  const { width, selectedValue, handleTrigger } = useSelectContext();
 
   return (
-    <div className={styles.trigger} onClick={handleTrigger}>
-      {selectedValue?.label || placeholder}
-      <Icon name="arrowBack" width="18px" />
+    <div className={styles.trigger} onClick={handleTrigger} style={{ width }}>
+      <p className={selectedValue?.value ? styles.selected : ''}>
+        {selectedValue?.label || placeholder}
+      </p>
+      <Icon name="arrowBack" width="11px" />
       {children}
     </div>
   );
 };
 
-const Dropdown = ({
-  children,
-  width,
-}: {
-  children: React.ReactNode;
-  width?: string;
-}) => {
-  const { isOpened } = useSelectContext();
+const Dropdown = ({ children }: { children: React.ReactNode }) => {
+  const { isOpened, width } = useSelectContext();
 
   if (!isOpened) return null;
 

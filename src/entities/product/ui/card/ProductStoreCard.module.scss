@@ -1,0 +1,75 @@
+@use '@/shared/styles/colors';
+@use '@/shared/styles/mixins' as *;
+
+.productName {
+  font-size: clamp(1.8rem, calc(-0.004rem + 2.346vw), 4.5rem);
+  padding-top: clamp(0.8rem, calc(-0.002rem + 1.043vw), 2rem);
+  padding-left: clamp(1.2rem, calc(0.715rem + 1.294vw), 3.2rem);
+  padding-bottom: clamp(1.52rem, calc(-0.003rem + 1.981vw), 3.8rem);
+
+  @include media(tablet) {
+    font-size: 1.7rem;
+    padding-top: 0.75rem;
+    padding-left: 1.2rem;
+    padding-bottom: 2.3rem;
+  }
+}
+
+.productImage {
+  @include media(tablet) {
+    padding: 0 1.4rem;
+  }
+}
+
+.productInfo {
+  margin-top: clamp(2.8rem, calc(-0.207rem + 3.91vw), 7.3rem);
+  padding-bottom: clamp(2.12rem, calc(-0.005rem + 2.763vw), 5.3rem);
+  padding-left: clamp(1.2rem, calc(0.715rem + 1.294vw), 3.2rem);
+
+  @include media(tablet) {
+    margin-top: 3.3rem;
+    padding-left: 1.2rem;
+    padding-bottom: 1.8rem;
+  }
+}
+
+.productDetailInfo {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, calc(0.606rem + 0.518vw), 1.6rem);
+  font-size: clamp(0.88rem, calc(-0.002rem + 1.147vw), 2.2rem);
+
+  @include media(tablet) {
+    font-size: 1.1rem;
+  }
+}
+
+.divider {
+  width: 1px;
+  height: clamp(1.1rem, calc(0.882rem + 0.583vw), 2rem);
+  background-color: colors.$gray-6;
+}
+
+.productPriceTitle {
+  font-size: clamp(0.88rem, calc(-0.002rem + 1.147vw), 2.2rem);
+  font-weight: bold;
+  margin-top: clamp(1rem, calc(-0.002rem + 1.303vw), 2.5rem);
+
+  @include media(tablet) {
+    margin-top: 1.6rem;
+    font-size: 1.2rem;
+  }
+}
+
+.productPrice {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.4rem, calc(0.133rem + 0.712vw), 1.5rem);
+  margin-top: clamp(0.24rem, calc(-0.001rem + 0.313vw), 0.6rem);
+  font-size: clamp(1.12rem, calc(-0.002rem + 1.46vw), 2.8rem);
+
+  @include media(tablet) {
+    margin-top: 0.4rem;
+    font-size: 1.4rem;
+  }
+}

@@ -1,9 +1,15 @@
 import Typography from '@/shared/ui/typography/Typography';
-import styles from './card.module.scss';
+import styles from './Card.module.scss';
 
-const MainCard = () => {
+type MainCardProps = {
+  paddingTop?: string;
+  paddingBottom?: string;
+  children?: React.ReactNode;
+};
+
+const MainCard = ({ paddingTop, paddingBottom, children }: MainCardProps) => {
   return (
-    <div className={styles.mainCard}>
+    <div className={styles.mainCard} style={{ paddingTop, paddingBottom }}>
       <Typography
         fontFamily="Futura"
         fontSize="clamp(5.8rem, calc(4.392rem + 3.754vw), 11.6rem)"
@@ -33,15 +39,7 @@ const MainCard = () => {
       >
         실링팬 이미지
       </div>
-      <Typography
-        fontSize="clamp(1.6rem, calc(0.629rem + 2.589vw), 5.6rem)"
-        marginTop="max(1.8rem, calc(4.2rem - 0.155vw))"
-      >
-        As companions responsible for elevating the quality of your life we
-        assure you a sense of satisfaction incomparable to other brands
-        products. Alongside Aeroway ceiling fan, experience a more plush and
-        beautiful space.
-      </Typography>
+      {children}
     </div>
   );
 };

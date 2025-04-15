@@ -1,0 +1,29 @@
+@use '@/shared/styles/colors';
+@use '@/shared/styles/mixins' as *;
+
+.visitServiceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.visitServiceCardInner {
+  padding-top: 226px;
+  @include responsive-padding-bottom(
+    8.137rem,
+    calc(1.762rem + 16.999vw),
+    34.4rem
+  );
+  text-align: center;
+}
+
+.visitServiceReserveButton {
+  width: clamp(17.5rem, calc(16.068rem + 3.819vw), 23.4rem);
+  height: clamp(5.8rem, calc(5.072rem + 1.942vw), 8.8rem);
+  font-size: clamp(1.4rem, calc(1.157rem + 0.647vw), 2.4rem);
+  outline: none;
+  color: colors.$black-1;
+  background-color: colors.$yellow-1;
+  border: 1px solid colors.$gray-6;
+  margin-top: clamp(8rem, calc(6.835rem + 3.107vw), 12.8rem);
+}

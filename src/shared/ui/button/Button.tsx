@@ -1,42 +1,63 @@
 import { memo } from 'react';
-import Icon from '../icon/Icon';
-import { IconNames } from '../icon/iconExports';
-import styles from './button.module.css';
+import styles from './button.module.scss';
 
-type ButtonProps = {
+export type ButtonProps = {
   children: React.ReactNode;
   width?: string;
   height?: string;
-  iconName?: IconNames;
+  // iconName?: IconNames;
   disabled?: boolean;
   fontSize?: string;
-  variant?: 'filled' | 'border';
+  variant?: 'yellow' | 'gray' | 'border';
+  borderTop?: boolean;
+  borderBottom?: boolean;
+  borderLeft?: boolean;
+  borderRight?: boolean;
+  borderColor?: string;
+  textColor?: string;
+  borderRadius?: string;
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 };
 
 const Button = memo(
   ({
     children,
-    width = '164px',
+    width = '100%',
     height = '52px',
-    iconName,
-    disabled,
+    // iconName,
+    disabled = false,
     fontSize = '20px',
-    variant = 'filled',
+    variant = 'yellow',
+    borderTop,
+    borderBottom,
+    borderLeft,
+    borderRight,
+    borderColor = '#000000',
+    textColor,
+    borderRadius,
     onClick,
   }: ButtonProps) => {
+    const borderStyle = `1px solid ${borderColor}`;
+
+    const style: React.CSSProperties = {
+      width,
+      height,
+      fontSize,
+      ...(textColor && { color: textColor }),
+      ...(borderRadius && { borderRadius }),
+      ...(borderTop && { borderTop: borderStyle }),
+      ...(borderBottom && { borderBottom: borderStyle }),
+      ...(borderLeft && { borderLeft: borderStyle }),
+      ...(borderRight && { borderRight: borderStyle }),
+    };
+
     return (
       <button
-        className={`${styles.filled} ${iconName ? styles.withIcon : ''} ${disabled ? styles.disabled : ''} ${styles[variant]}`}
-        style={{ width, height, fontSize }}
+        className={`${styles.button} ${styles[variant]}`}
+        style={style}
+        disabled={disabled}
         onClick={onClick}
       >
-        {iconName && (
-          <Icon
-            fill={variant === 'filled' ? '#ffffff' : '#334155'}
-            name={iconName}
-          />
-        )}
         {children}
       </button>
     );

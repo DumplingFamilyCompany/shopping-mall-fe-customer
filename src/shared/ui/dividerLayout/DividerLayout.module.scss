@@ -1,0 +1,23 @@
+@use '@/shared/styles/colors';
+@use '@/shared/styles/mixins' as *;
+
+.flexContainer {
+  display: flex;
+  align-items: stretch;
+
+  &.verticalOnMobile {
+    @include media(tablet) {
+      flex-direction: column;
+    }
+  }
+}
+
+.left,
+.right {
+  flex: 1;
+}
+
+.divider {
+  width: 1px;
+  background-color: colors.$black-1;
+}

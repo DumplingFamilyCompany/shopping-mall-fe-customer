@@ -1,26 +1,43 @@
+@use '@/shared/styles/colors';
+
 .container {
   position: relative;
   width: fit-content;
 }
 
-.label {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--neutral-1);
-  flex-shrink: 0;
+.labelContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 17px;
+
+  .label {
+    flex-shrink: 0;
+  }
+
+  .spacer {
+    flex-grow: 1; // 남은 공간을 채워줌
+    min-width: 19px; // 너무 좁아지지 않도록
+  }
+
+  .description {
+    width: 727px;
+    color: #6f7070;
+  }
 }
 
 .field {
-  padding: 10.5px 12px;
+  all: unset;
+  // padding: 10.5px 12px;
+  padding: 10.5px 0;
   font-size: 16px;
-  color: var(--neutral-1);
-  background-color: var(--bg_input);
-  border: 1px solid var(--border-1);
+  border-bottom: 1px solid #e5e5e5;
+  color: colors.$black-1;
+  background-color: colors.$white-1;
   border-radius: 4px;
 
   &:focus {
-    border: 1px solid var(--primary-1);
-    caret-color: var(--primary-1);
+    border-bottom: 1px solid #e5e5e5;
+    // caret-color: var(--primary-1);
   }
 
   &:disabled {

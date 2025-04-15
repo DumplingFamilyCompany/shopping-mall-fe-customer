@@ -1,0 +1,16 @@
+@use '@/shared/styles/colors';
+
+.main {
+  min-height: 100vh;
+  color: colors.$black-1;
+  background-color: colors.$white-1;
+}
+
+.nav {
+  background-color: colors.$black-1;
+  height: 15rem;
+}
+
+.section {
+  border-bottom: 1px solid colors.$black-1;
+}

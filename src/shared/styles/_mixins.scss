@@ -1,3 +1,6 @@
+@use 'breakpoints' as *;
+@use 'sass:map';
+
 @mixin responsive-padding($min, $fluid, $max) {
   padding: clamp(#{$min}, #{$fluid}, #{$max});
 }
@@ -26,4 +29,16 @@
 @mixin responsive-padding-y($min, $fluid, $max) {
   padding-top: clamp(#{$min}, #{$fluid}, #{$max});
   padding-bottom: clamp(#{$min}, #{$fluid}, #{$max});
+}
+
+@mixin media($breakpoint) {
+  $size: map.get($breakpoints, $breakpoint);
+
+  @if size {
+    @media screen and (max-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "🚨 '#{$breakpoint}'는 정의된 브레이크포인트가 아닙니다.";
+  }
 }

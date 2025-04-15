@@ -1,0 +1,42 @@
+@use '@/shared/styles/colors';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  // border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$white-1;
+  padding: clamp(4rem, calc(1.937rem + 5.502vw), 12.5rem)
+    clamp(2rem, calc(-0.864rem + 7.638vw), 13.8rem);
+}
+
+.titleContainer {
+  padding-bottom: 48px;
+  border-bottom: 1px solid #707071;
+}
+
+.content {
+  padding: clamp(3rem, calc(1.107rem + 5.049vw), 10.8rem) 0
+    clamp(5rem, calc(2.015rem + 7.961vw), 17.3rem);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}

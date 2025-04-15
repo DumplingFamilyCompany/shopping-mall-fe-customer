@@ -1,3 +1,5 @@
+@use '@/shared/styles/colors';
+
 .flexContainer {
   width: fit-content;
   display: flex;
@@ -13,18 +15,24 @@
   width: 150px;
   border: 1px solid var(--border-1);
   border-radius: 4px;
-  padding: 10.5px 12px;
+  // padding: 10.5px 12px;
+  padding: 10.5px 0;
+  color: colors.$gray-5;
+  font-size: 18px;
+
+  .selected {
+    color: colors.$black-1;
+  }
 }
 
 .dropdown {
   position: absolute;
   top: calc(100% + 4px);
   /* right: 0; */
-  width: 150px;
   left: 0;
   width: 370px;
-  border-radius: 14px;
-  background-color: var(--white-1);
+  border-radius: 4px;
+  background-color: colors.$white-1;
   box-shadow: 0px 20px 60px 0px #17314b26;
   z-index: 15;
 }
@@ -36,11 +44,12 @@
 }
 
 .option {
+  color: colors.$black-1;
   padding: 12px 0 12px 20px;
   cursor: pointer;
 
   &:last-of-type {
-    border-radius: 0 0 14px 14px;
+    border-radius: 0 0 4px 4px;
   }
 
   &:hover {
@@ -49,7 +58,7 @@
 }
 
 .active {
-  color: var(--primary-1);
+  // color: var(--primary-1);
   font-weight: 700;
 }
 

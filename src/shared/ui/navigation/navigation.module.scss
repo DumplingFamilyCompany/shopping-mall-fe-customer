@@ -1,3 +1,5 @@
+@use '@/shared/styles/colors';
+
 .nav {
   position: fixed;
   top: 0;
@@ -15,7 +17,7 @@
   display: flex;
   gap: 7.1rem;
   margin-left: 10.847rem;
-  color: var(--gray-4);
+  color: colors.$gray-4;
 }
 
 .navLogin {
