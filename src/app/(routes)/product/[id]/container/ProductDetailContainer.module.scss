@@ -1,0 +1,8 @@
+@use '@/shared/styles/colors';
+
+.productNameContainer {
+  margin-top: 150px;
+  border-top: 1px solid colors.$black-1;
+  border-bottom: 1px solid colors.$black-1;
+  padding: 27px 0 37px 90px;
+}
