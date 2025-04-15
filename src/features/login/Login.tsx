@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import LoginForm from './ui/LoginForm';
 
 const Login = () => {

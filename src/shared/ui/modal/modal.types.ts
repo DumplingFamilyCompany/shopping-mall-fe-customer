@@ -1,5 +1,4 @@
 import { ErrorModalProps } from './errorModal/ErrorModal';
-import { PreReservationModalProps } from './preReservationModal/PreReservationModal';
 
 export type ModalPropsMap = {
   ConfirmModal: {
@@ -12,7 +11,7 @@ export type ModalPropsMap = {
   };
   ChangePasswordModal: object;
   ErrorModal: ErrorModalProps;
-  PreReservationModal: PreReservationModalProps;
+  PreReservationModal: object;
 };
 
 export type ModalConfig<T extends ModalTypes = ModalTypes> = {

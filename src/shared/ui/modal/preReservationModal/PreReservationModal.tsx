@@ -1,5 +1,4 @@
 import { Controller, useForm } from 'react-hook-form';
-import GuidanceMessage from '@/shared/ui/guidanceMessage/GuidanceMessage';
 import Spacer from '@/shared/ui/spacer/Spacer';
 import Button from '../../button/Button';
 import TextInput from '../../input/TextInput';
@@ -9,8 +8,6 @@ import Typography from '../../typography/Typography';
 import WatchComponent from '../../watchComponent/WatchComponent';
 import Modal from '../Modal';
 import styles from './PreReservationModal.module.scss';
-
-export type PreReservationModalProps = {};
 
 const PreReservationModal = () => {
   const modalSelectButtonProps = {
@@ -23,7 +20,7 @@ const PreReservationModal = () => {
     borderBottom: true,
   };
 
-  let timeOptions = Array.from({ length: 10 }, (_, index) => {
+  const timeOptions = Array.from({ length: 10 }, (_, index) => {
     const hour = index + 9 < 10 ? `0${index + 9}` : index + 9;
     return {
       label: `${hour}:00`,

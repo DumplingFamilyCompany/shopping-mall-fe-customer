@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useSetToken } from '@/entities/auth/hooks';
 
-const OauthRedirectPage = () => {
+const OauthRedirectContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
@@ -30,10 +30,18 @@ const OauthRedirectPage = () => {
   }, []);
 
   return (
-    <div ref={() => console.log('mount, token:', token)}>
+    <div>
       Oauth Redirect Page
       <div>token: {token}</div>
     </div>
+  );
+};
+
+const OauthRedirectPage = () => {
+  return (
+    <Suspense>
+      <OauthRedirectContent />
+    </Suspense>
   );
 };
 
